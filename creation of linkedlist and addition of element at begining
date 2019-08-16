@@ -1,0 +1,108 @@
+#include<stdio.h>
+#include<iostream>
+
+using namespace std;
+//class node
+struct node
+{
+	int data;
+	node *next;
+}ab;
+class list		//class list
+{
+	private:
+	node *head,*tail;
+	public:
+	list()
+	{
+		head==NULL;
+		tail==NULL;
+	}
+	void print()		//function to print a linked list
+	{
+		node *newptr=new node;
+		newptr=head;
+		while(newptr!=NULL)
+		{
+			 cout<<" "<<newptr->data;  
+        newptr = newptr->next;
+		}
+	}
+
+	void insatbeg(int n)			// func to insert at begining
+	{
+		node *newpt=new node;
+		
+		if(newpt==NULL)
+		cout<<"OVERFLOW";
+		else
+		{
+			
+			if(head==NULL)
+			{
+			
+			newpt->data=n;
+			
+			newpt->next=head;
+			head=newpt;
+			tail=newpt;
+			}
+			else
+			{
+				
+				newpt->data=n;
+			
+			newpt->next=head;
+			head=newpt;
+			
+			}
+		}
+		
+	}
+	void insatend(int n)		//function to insert at end
+	{
+		node *newptr=new node;
+		
+		if(newptr==NULL)
+		cout<<"OVERFLOW";
+		
+		else
+		{
+			newptr->data=n;
+		newptr->next=NULL;
+		
+		if(head==NULL)
+		{
+			head=newptr;
+			tail=newptr;
+		}
+		else
+		{
+			tail->next=newptr;
+			tail= tail->next;
+		}
+}
+
+	}
+}ob;
+
+int main()
+{
+	int i,x[100],k=1,y;
+	//creation of linked list
+	while(k!=0)
+	{
+		cout<<"enter the values of linked list : ";
+		cin>>x[i];
+		ob.insatend(x[i]);
+		cout<<"DO YOU WANT TO CONTINUE 0 for no 1 for yes";
+		cin>>k;
+	}
+	cout<<"ENTER THE VALUE TO INSERT AT BEGINING : ";
+	cin>>y;
+	//insertion at begining y
+	ob.insatbeg(y);
+	
+	cout<<"CREATED LINK LIST : ";
+	ob.print();
+}
